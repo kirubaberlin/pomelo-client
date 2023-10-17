@@ -1,26 +1,39 @@
-import "./SignupPage.css";
+import "./ConsSignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
 
-function SignupPage() {
+function ConsSignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
+  const [profilePicture, setprofilePicture] = useState("");
+  const [coverPicture, setcoverPicture] = useState("");
+  const [cv, setcv] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-
   const navigate = useNavigate();
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
   const handlefirstName = (e) => setfirstName(e.target.value);
   const handlelastName = (e) => setlastName(e.target.value);
+  const handleprofilePicture = (e) => setprofilePicture(e.target.value);
+  const handlecoverPicture = (e) => setcoverPicture(e.target.value);
+  const handlecv = (e) => setcv(e.taget.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, firstName, lastName };
+    const requestBody = {
+      email,
+      password,
+      firstName,
+      lastName,
+      profilePicture,
+      coverPicture,
+      cv,
+    };
 
     // Send a request to the server using axios
     /* 
@@ -48,13 +61,17 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <div className="image-container">
+    <div className="ConsSignupPage">
+      <div className="ConsImage-container">
         <img src="pomelopinkbg.png"></img>
       </div>
-      <div className="signup-wording">
-        <h1>Sign Up with POMELO.</h1>
-        <h1>Get that job.</h1>
+      <div className="ConsSignup-wording">
+        <div className="ConsSignupPage">
+          <h1>
+            Sign up as a POMELO Consultant. Help people get jobs and get paid
+            for it.
+          </h1>
+        </div>
 
         <form onSubmit={handleSignupSubmit}>
           <div className="signup-container">
@@ -100,6 +117,36 @@ function SignupPage() {
               placeholder="Last Name"
             />
           </div>
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="profilePicture"
+              value={profilePicture}
+              onChange={handleprofilePicture}
+              placeholder="Profile Picture"
+            />
+          </div>
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="coverPicture"
+              value={coverPicture}
+              onChange={handlecoverPicture}
+              placeholder="Cover Picture"
+            />
+          </div>
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="cv"
+              value={cv}
+              onChange={handlecv}
+              placeholder="Your CV"
+            />
+          </div>
           <button type="submit">Sign Up</button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -108,14 +155,10 @@ function SignupPage() {
             Already have an account?
             <Link to={"/login"}> Login</Link>
           </h2>
-          <h2>
-            Want to become a consultant?
-            <Link to={"/signup"}> Login</Link>
-          </h2>
         </div>
       </div>
     </div>
   );
 }
 
-export default SignupPage;
+export default ConsSignupPage;

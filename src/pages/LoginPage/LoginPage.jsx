@@ -46,26 +46,43 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <div className="image-container">
+        <img src="orangepomelo.png"></img>
+      </div>
+      <div className="login-container">
+        <h1>Welcome back to Pomelo.</h1>
+        <h1>Trust the fruit.</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <form className="login-form" onSubmit={handleLoginSubmit}>
+          <label></label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleEmail}
+            placeholder="email"
+          />
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <label></label>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={handlePassword}
+            placeholder="password"
+          />
 
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <button className="login-button" type="submit">
+            Login
+          </button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+        <h2>
+          Don't have an account yet?
+          <Link to={"/signup"}> Sign Up</Link>
+        </h2>
+      </div>
     </div>
   );
 }

@@ -33,6 +33,10 @@ function Navbar() {
             {" "}
             <button>Sign Up</button>{" "}
           </Link>
+          <Link to="/consultant">
+            {" "}
+            <button>Consultant Sign Up</button>{" "}
+          </Link>
           <Link to="/login">
             {" "}
             <button>Login</button>{" "}

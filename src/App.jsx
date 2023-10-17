@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ConsSignupPage from "./pages/ConsSignupPage/ConsSignupPage";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -32,6 +33,15 @@ function App() {
           element={
             <IsAnon>
               <SignupPage />
+            </IsAnon>
+          }
+        />
+
+        <Route
+          path="/consultant"
+          element={
+            <IsAnon>
+              <ConsSignupPage />
             </IsAnon>
           }
         />
