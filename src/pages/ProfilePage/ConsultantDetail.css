@@ -1,0 +1,145 @@
+/* ConsultantDetail.css */
+.container {
+  padding: 20px;
+}
+
+.cover-picture {
+  text-align: center;
+  position: relative;
+}
+
+.cover-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.edit-cover-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 5px solid #ED6658;
+  border-radius: 50%;
+  /* Adjust margin values as needed */
+}
+
+.edit-profile-icon {
+  position: relative;
+  top: -40px;
+  left: 80px;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: #FFF;
+  cursor: pointer;
+}
+
+.profile-title {
+  color: #ED6658;
+  font-size: 24px;
+  /* Adjust margin values as needed */
+}
+
+.profile-info {
+  font-size: 18px;
+  margin: 10px 0;
+  /* Adjust margin values as needed */
+  background-color: #ED6658;
+  color: white;
+}
+
+.profile-details-container {
+  padding: 20px;
+}
+
+.profile-details-card {
+  border: none;
+  background-color: #ED6658;
+  color: #FFF;
+}
+
+.profile-description {
+  font-size: 16px;
+}
+
+.profile-packages {
+  font-size: 16px;
+}
+
+.profile-rating {
+  font-size: 16px;
+}
+
+.book-now-button {
+  background-color: #ED6658;
+  border: none;
+  color: #FFF;
+  margin: 20px 0;
+  padding: 10px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style package cards */
+
+.profile-packages-card {
+  background-color: #ED6658;
+  color: #FFF;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.package-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.package-card {
+  width: 30%;
+  background-color: #FFF;
+  color: #000;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.package-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ED6658;
+}
+
+.package-price {
+  font-size: 16px;
+  color: #000;
+}
+
+
+
+.online-badge {
+  background-color: #4CAF50;
+}
+
+.offline-badge {
+  background-color: #FF5722;
+}
+

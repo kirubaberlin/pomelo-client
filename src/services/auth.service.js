@@ -31,6 +31,18 @@ class AuthService {
     // return axios.post("http://localhost:5005/auth/singup");
   };
 
+  consignup = (requestBody) => {
+    return this.api.post("http://localhost:5005/api/consultant", requestBody);
+    // same as
+    // return axios.post("http://localhost:5005/auth/singup");
+  };
+
+  jssignup = (requestBody) => {
+    return this.api.post("http://localhost:5005/api/jobseeker", requestBody);
+    // same as
+    // return axios.post("http://localhost:5005/auth/singup");
+  };
+
   verify = () => {
     return this.api.get("/auth/verify");
     // same as

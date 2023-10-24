@@ -1,12 +1,91 @@
-import "./LoginPage.css";
+// import { useState, useContext } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import { AuthContext } from "../../context/auth.context";
+// import authService from "../../services/auth.service";
+// import "./LoginPage.css";
+
+// function LoginPage() {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [userType, setUserType] = useState("jobseeker");
+//   const [errorMessage, setErrorMessage] = useState(undefined);
+
+//   const navigate = useNavigate();
+
+//   const { storeToken, authenticateUser } = useContext(AuthContext);
+
+//   const handleEmail = (e) => setEmail(e.target.value);
+//   const handlePassword = (e) => setPassword(e.target.value);
+
+//   const handleUserTypeChange = (e) => setUserType(e.target.value); // Handle userType selection
+
+//   const handleLoginSubmit = (e) => {
+//     e.preventDefault();
+//     const requestBody = { email, password, userType }; // Include userType in the request
+
+//     authService
+//       .login(requestBody)
+//       .then((response) => {
+//         const { authToken, userType } = response.data; // Extract userType from the response
+//         storeToken(authToken);
+//         authenticateUser();
+
+//         if (userType === "consultant") {
+//           navigate("/csprofile");
+//         } else if (userType === "jobseeker") {
+//           navigate("/jsprofile");
+//         }
+//       })
+//       .catch((error) => {
+//         const errorDescription = error.response.data.message;
+//         setErrorMessage(errorDescription);
+//       });
+//   };
+
+//   return (
+//     <div className="LoginPage">
+//       <h1>Login</h1>
+
+//       <form onSubmit={handleLoginSubmit}>
+//         <label>Email:</label>
+//         <input type="email" name="email" value={email} onChange={handleEmail} />
+
+//         <label>Password:</label>
+//         <input
+//           type="password"
+//           name="password"
+//           value={password}
+//           onChange={handlePassword}
+//         />
+
+//         <label>Log in as:</label>
+//         <select value={userType} onChange={handleUserTypeChange}>
+//           <option value="consultant">Consultant</option>
+//           <option value="jobseeker">Jobseeker</option>
+//         </select>
+
+//         <button type="submit">Login</button>
+//       </form>
+//       {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+//       <p>Don't have an account yet?</p>
+//       <Link to={"/signup"}>Sign Up</Link>
+//     </div>
+//   );
+// }
+
+// export default LoginPage;
+
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
+import "./LoginPage.css";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("jobseeker");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -16,29 +95,26 @@ function LoginPage() {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
+  const handleUserTypeChange = (e) => setUserType(e.target.value);
+
   const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { email, password };
+    const requestBody = { email, password, userType };
 
-    // Send a request to the server using axios
-    /* 
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/auth/login`)
-      .then((response) => {})
-    */
-
-    // Or using a service
     authService
       .login(requestBody)
       .then((response) => {
-        // If the POST request is successful store the authentication token,
-        // after the token is stored authenticate the user
-        // and at last navigate to the home page
-        storeToken(response.data.authToken);
+        const { authToken, userType } = response.data;
+        storeToken(authToken);
         authenticateUser();
-        navigate("/");
+
+        if (userType === "consultant") {
+          navigate("/csprofile");
+        } else if (userType === "jobseeker") {
+          navigate("/jsprofile");
+        }
       })
       .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
@@ -60,12 +136,15 @@ function LoginPage() {
           onChange={handlePassword}
         />
 
+        <label>Log in as:</label>
+        <select value={userType} onChange={handleUserTypeChange}>
+          <option value="consultant">Consultant</option>
+          <option value="jobseeker">Jobseeker</option>
+        </select>
+
         <button type="submit">Login</button>
       </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"}>Sign Up</Link>
     </div>
   );
 }

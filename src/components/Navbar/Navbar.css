@@ -1,0 +1,6 @@
+/* NavBar.css */
+.custom-navbar {
+    background: transparent !important;
+    transition: background 0.5s; /* Add a smooth transition effect */
+  }
+  
