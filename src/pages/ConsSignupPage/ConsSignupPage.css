@@ -1,0 +1,152 @@
+.ConsSignupPage {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+   
+   
+  }
+
+  .consSignupWording {
+    display:block;
+  }
+
+.ConsSignupPage h1 {
+    padding-top: 20px;
+    font-size: 60px;
+    color: black;
+    display: inline-block;
+    font-weight: bolder;
+    text-align: center;
+    /* add font from google */
+    font-family: 'Big Shoulders Display', sans-serif;
+
+  }
+  .infoText {
+    
+  }
+
+
+  form {
+    margin: 0 auto;
+    max-width: 400px;
+    text-align: center;
+
+  }
+  
+  .signup-container {
+    flex: 1;
+
+    background-color: white;
+    font-family: "Big Shoulders Display";
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .signup-container label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    font-family: "Big Shoulders Display";
+  }
+  
+  .signup-container input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+  }
+
+  .ConsImage-container img {
+    max-width: 800px;
+    height: auto;
+}
+  
+  /* styles for the email, password, and name input containers */
+  
+  
+ 
+  
+  button[type="submit"] {
+    background-color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 28px;
+    font-weight: bolder;
+    cursor: pointer;
+    font-family: "Big Shoulders Display";
+    text-align: center;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.05);
+    text-align: center;
+  }
+  
+  /*h1 {
+    padding: 15px;
+    font-size: 60px;
+    font-weight: bolder;
+    text-align: center;
+    /* add font from google */
+    /*font-family: 'Big Shoulders Display', sans-serif; */
+  /*} */ 
+  
+  h2 {
+    padding: 15px;
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    /* add font from google */
+    font-family: 'Big Shoulders Display', sans-serif;
+  }
+  
+  /* body {
+    background-image: url('/public/pomelo.png');
+    background-size: 55%;
+    background-repeat: no-repeat;
+    /* add font from google */
+    /*font-family: 'Big Shoulders Display', sans-serif;
+  } */
+  
+  .signup-form {
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  form button {
+    max-width: 985px;
+    min-height: 45px;
+    border-radius: 15px;
+    background-color: #DBB7AD;
+    padding: 4px 53px;
+    margin-bottom: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    font-family: "Big Shoulders Display";
+    text-align: center;
+  }
+  
+  form button:hover {
+    background-color: #948D24;
+    transform: scale(1.07);
+  }
+  
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -7,6 +7,8 @@ import JobSeekerEdit from "./pages/ProfilePage/JobSeekerEdit";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import ConsultantSignup from "./pages/SignupPage/ConsultantSignup";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ConsSignupPage from "./pages/ConsSignupPage/ConsSignupPage";
+import ConsultantsList from "./components/ConsultantsList/ConsultantsList";
 
 import Navbar from "./components/Navbar/Navbar";
 import Room from "./components/Room/Room";
@@ -96,19 +98,33 @@ function App() {
         />
 
         <Route
+ signuplogin
           path="/signup/consultant"
           element={
             <IsAnon>
               <ConsultantSignup />
+
+          path="/consultants"
+          element={
+            <IsAnon>
+              <ConsultantsList />
+
             </IsAnon>
           }
         />
 
         <Route
+ signuplogin
           path="/signup/js"
           element={
             <IsAnon>
               <JobseekerSignupPage />
+
+          path="/consultant"
+          element={
+            <IsAnon>
+              <ConsSignupPage />
+
             </IsAnon>
           }
         />
