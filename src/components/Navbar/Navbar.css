@@ -1,3 +1,11 @@
+signuplogin
+/* NavBar.css */
+.custom-navbar {
+    background: transparent !important;
+    transition: background 0.5s; /* Add a smooth transition effect */
+  }
+  
+
 
 .navbar1 {
     background-color: #da928f;
@@ -77,4 +85,5 @@
   .navbar-button a{
     color: white !important;
   }
+
 
