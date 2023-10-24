@@ -96,23 +96,24 @@
 .LoginPage {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    margin-top: 20px;
   }
 .login-container {
     flex: 1;
     background-color: white;
     font-family: "Big Shoulders Display";
+    font-weight: bolder;
     text-align: center;
     padding: 20px;
 
   }
 
+
+
 .image-container {
     flex: 1;
     display: flex;
     justify-content: center;
-
     align-items: center;
 }
 .image-container img {

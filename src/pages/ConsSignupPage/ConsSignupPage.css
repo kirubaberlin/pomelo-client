@@ -1,9 +1,9 @@
 .ConsSignupPage {
     display: flex;
-   
+    margin-top: 10px;
     justify-content: center;
-    align-items: center;
-    height: 150vh;
+   
+   
   }
 
   .consSignupWording {
@@ -12,9 +12,7 @@
 
 .ConsSignupPage h1 {
     padding-top: 20px;
-    margin-top: 280px;
-  background-color:darkred;
-    font-size: 50px;
+    font-size: 60px;
     color: black;
     display: inline-block;
     font-weight: bolder;
@@ -23,8 +21,11 @@
     font-family: 'Big Shoulders Display', sans-serif;
 
   }
+  .infoText {
+    
+  }
 
-  
+
   form {
     margin: 0 auto;
     max-width: 400px;
@@ -117,7 +118,7 @@
   .signup-form {
     background-color: white;
     color: #333;
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
@@ -130,7 +131,7 @@
     padding: 4px 53px;
     margin-bottom: 50px;
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 30px;
     border: none;
     cursor: pointer;
     font-family: "Big Shoulders Display";

@@ -60,6 +60,28 @@ function SignupPage() {
           <div className="signup-container">
             <label></label>
             <input
+              type="text"
+              name="firstName"
+              value={firstName}
+              onChange={handlefirstName}
+              placeholder="First Name"
+            />
+          </div>
+
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={handlelastName}
+              placeholder="Last Name"
+            />
+          </div>
+
+          <div className="signup-container">
+            <label></label>
+            <input
               type="email"
               name="email"
               value={email}
@@ -79,27 +101,6 @@ function SignupPage() {
             />
           </div>
 
-          <div className="signup-container">
-            <label></label>
-            <input
-              type="text"
-              name="firstName"
-              value={firstName}
-              onChange={handlefirstName}
-              placeholder="First Name"
-            />
-          </div>
-
-          <div className="signup-container">
-            <label></label>
-            <input
-              type="text"
-              name="lastName"
-              value={lastName}
-              onChange={handlelastName}
-              placeholder="Last Name"
-            />
-          </div>
           <button type="submit">Sign Up</button>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -110,7 +111,13 @@ function SignupPage() {
           </h2>
           <h2>
             Want to become a consultant?
-            <Link to={"/signup"}> Login</Link>
+            <Link to={"/consultant"}> Sign up with us</Link>
+          </h2>
+          {/* trying to see if I can somehow see what I have made between line
+          117-120 */}
+          <h2>
+            Want to see our consultants?
+            <Link to="/consultants"> Have a look</Link>
           </h2>
         </div>
       </div>

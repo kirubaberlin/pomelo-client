@@ -77,6 +77,28 @@ function ConsSignupPage() {
           <div className="signup-container">
             <label></label>
             <input
+              type="text"
+              name="firstName"
+              value={firstName}
+              onChange={handlefirstName}
+              placeholder="First Name"
+            />
+          </div>
+
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={handlelastName}
+              placeholder="Last Name"
+            />
+          </div>
+
+          <div className="signup-container">
+            <label></label>
+            <input
               type="email"
               name="email"
               value={email}
@@ -96,27 +118,6 @@ function ConsSignupPage() {
             />
           </div>
 
-          <div className="signup-container">
-            <label></label>
-            <input
-              type="text"
-              name="firstName"
-              value={firstName}
-              onChange={handlefirstName}
-              placeholder="First Name"
-            />
-          </div>
-
-          <div className="signup-container">
-            <label></label>
-            <input
-              type="text"
-              name="lastName"
-              value={lastName}
-              onChange={handlelastName}
-              placeholder="Last Name"
-            />
-          </div>
           <div className="signup-container">
             <label></label>
             <input
