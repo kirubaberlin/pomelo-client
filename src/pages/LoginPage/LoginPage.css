@@ -1,161 +1,66 @@
-/*.LoginPage {
-    text-align: right;
-    padding: 20px;
-  }
-  
- form {
-    margin: auto;
-    max-width: 400px;
-    text-align: right;
-  }
-  button[type="submit"] {
-    background-color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    color: black;
-    font-size: 28px;
-    font-weight: bolder;
-    cursor: pointer;
-    font-family: "Big Shoulders Display";
-    text-align: right;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: black;
-    color: white;
-    transform: scale(1.05);
-    text-align: right;
-  }
-  
-  .input-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 5px;
-    margin-bottom: 20px;
-    text-align: right;
-  }
-  
-  .input-container label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-align: right;
-    display: inline-block; /* Place labels inline with input boxes */
-  /*}
-  
- /* .input-container input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: right;
-    display: block; /* Ensure each input appears on a new line */
-  /*}
-  
-  /*.login-button {
-    display: block; /* Ensure each button appears on a new line */
-   /* text-align: right; /* Right-align the button */
- /*}
-  
-  /*h1 {
-    padding: 15px;
-    font-size: 80px;
-    font-weight: bolder;
-    text-align: right;
-    /* add font from google */
-    /*font-family: 'Big Shoulders Display', sans-serif;
-  }
-  
-  h2 {
-    padding: 15px;
-    font-size: 30px;
-    font-weight: bolder;
-    text-align: right;
-    /* add font from google */
-   /* font-family: 'Big Shoulders Display', sans-serif;
-  /*}
-  
-  /*body {
-    background-image: url('/public/pomelo.png');
-    background-size: 55%;
-    background-repeat: no-repeat;
-    /* add font from google */
-   /* font-family: 'Big Shoulders Display', sans-serif;
-  }
-  
-  .login-form {
-    background-color: white;
-    color: #333;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-  */
-
 .LoginPage {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 .login-container {
-    flex: 1;
-    background-color: white;
-    font-family: "Big Shoulders Display";
-    font-weight: bolder;
-    text-align: center;
-    padding: 20px;
+  flex: 1;
+  background-color: white;
+  font-family: "Big Shoulders Display";
+  font-weight: bolder;
+  text-align: center;
+  padding: 20px;
 
-  }
+}
 
 
 
 .image-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .image-container img {
-    max-width: 800px;
-    height: auto;
+  max-width: 800px;
+  height: auto;
 }
 .login-form {
-    background-color:white;
-    color: #333;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+  background-color:white;
+  color: #333;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
 }
 
 .login-form label {
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: block;
-    font-family: "Big Shoulders Display";
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  font-family: "Big Shoulders Display";
 }
 .login-form input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    display: block;
+  padding: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  display: block;
 }
 .login-button {
-    background-color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 20px ;
-    color: black;
-    font-size: 28px;
-    font-weight: bolder;
-    cursor: pointer;
-    font-family: "Big Shoulders Display";
-    text-align: right;
-    margin-right: 0px;
+  background-color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px ;
+  color: black;
+  font-size: 28px;
+  font-weight: bolder;
+  cursor: pointer;
+  font-family: "Big Shoulders Display";
+  text-align: right;
+  margin-right: 0px;
 }

@@ -2,6 +2,8 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+import backgroundImage from "./pomelopinkbg.png"; // Replace with your image path
+import lindsayImage from "./LindseyGoldwin.avif"; // Replace with your image path
 
 function JobseekerSignupPage() {
   const [email, setEmail] = useState("");
@@ -37,7 +39,7 @@ function JobseekerSignupPage() {
     authService
       .jssignup(requestBody)
       .then((response) => {
-        // If the POST request is successful redirect to the login page
+        // If the POST request is successful, redirect to the login page
         navigate("/login");
       })
       .catch((error) => {
@@ -49,43 +51,59 @@ function JobseekerSignupPage() {
 
   return (
     <div className="SignupPage">
-      <h1>JS Sign Up</h1>
-
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
-
-        <label>Last Name:</label>
-        <input
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={handleFirstName}
-        />
-
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={lastName}
-          onChange={handleLastName}
-        />
-
-        <button type="submit">Sign Up</button>
-      </form>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+      <div className="signup-container">
+        <div className="quote-container">
+          <p className="quote">
+            "Although I had what seemed like endless questions and problems to
+            solve, GrowthMentor was able to provide clear and concise feedback,
+            advice, and best practices."
+          </p>
+          <p className="quote-author">Lindsay Neeson</p>
+          <p className="quote-author">Growth Marketing Manager at Mixpanel</p>
+        </div>
+        <div className="form-container">
+          <h1>Jobseeker Sign Up</h1>
+          <form onSubmit={handleSignupSubmit}>
+            <label>Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+            />
+            <label>Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+            />
+            <label>First Name:</label>
+            <input
+              type="text"
+              name="firstName"
+              value={firstName}
+              onChange={handleFirstName}
+            />
+            <label>Last Name:</label>
+            <input
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={handleLastName}
+            />
+            <button type="submit">Sign Up</button>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+          </form>
+          <p>
+            Already have an account? <Link to="/login">Login</Link>
+          </p>
+        </div>
+      </div>
+      <div className="image-container">
+        <img src={backgroundImage} alt="Background" />
+        <img src={lindsayImage} alt="Lindsay" className="rounded-image" />
+      </div>
     </div>
   );
 }

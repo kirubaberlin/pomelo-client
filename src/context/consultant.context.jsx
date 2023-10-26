@@ -23,6 +23,7 @@ const ConsultantProvider = ({ children }) => {
             firstName: user.firstName,
             _id: user._id, // Updated line
             lastName: user.lastName,
+            consultantBio: user.consultantBio,
           });
           setIsLoading(false);
         })
@@ -42,12 +43,7 @@ const ConsultantProvider = ({ children }) => {
 
   return (
     <ConsultantContext.Provider value={{ consultant, setConsultant }}>
-      {!isLoading ? (
-        children
-      ) : (
-        // You can place a loading component here while verifying the token
-        <p>Loading...</p>
-      )}
+      {!isLoading ? children : <p>Loading...</p>}
     </ConsultantContext.Provider>
   );
 };
