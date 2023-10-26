@@ -1,5 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import React from "react";
 
 import HomePage from "./pages/HomePage/HomePage";
 import JobSeekerProfilePage from "./pages/ProfilePage/JobSeekerProfilePage";
@@ -7,6 +8,8 @@ import JobSeekerEdit from "./pages/ProfilePage/JobSeekerEdit";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import ConsultantSignup from "./pages/SignupPage/ConsultantSignup";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ConsSignupPage from "./pages/ConsSignupPage/ConsSignupPage";
+//import ConsultantsList from "./components/ConsultantsList/ConsultantsList";
 
 import Navbar from "./components/Navbar/Navbar";
 import Room from "./components/Room/Room";
@@ -17,6 +20,7 @@ import ConsultantEdit from "./pages/ProfilePage/ConsultantEdit";
 import ConsultantDetail from "./pages/ProfilePage/ConstultantDetail";
 import JobseekerSignupPage from "./pages/SignupPage/JobseekerSignupPage";
 import ConsultantList from "./pages/ProfilePage/ConsultantList";
+import ConsultantsList from "./components/ConsultantsList/ConsultantsList";
 
 function App() {
   return (
@@ -24,10 +28,10 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<ConsultantsList />} />
 
         <Route
-          path="/csprofile"
+          path="/consultant-profile/:id"
           element={
             <IsPrivate>
               <ConsultantProfilePage />
@@ -61,7 +65,7 @@ function App() {
         />
 
         <Route
-          path="/jsprofile"
+          path="/job-seeker-profile/:id"
           element={
             <IsPrivate>
               <JobSeekerProfilePage />
@@ -69,7 +73,7 @@ function App() {
           }
         />
         <Route
-          path="/allcs"
+          path="/consultants"
           element={
             <IsPrivate>
               <ConsultantList />
@@ -105,13 +109,23 @@ function App() {
         />
 
         <Route
-          path="/signup/js"
+          path="/jobseeker/signup"
           element={
             <IsAnon>
               <JobseekerSignupPage />
             </IsAnon>
           }
         />
+
+        <Route
+          path="/consultant"
+          element={
+            <IsAnon>
+              <ConsSignupPage />
+            </IsAnon>
+          }
+        />
+
         <Route
           path="/login"
           element={

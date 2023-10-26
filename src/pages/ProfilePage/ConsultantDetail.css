@@ -1,145 +1,80 @@
 /* ConsultantDetail.css */
-.container {
+.consultant-detail {
   padding: 20px;
+  background-color: #f5f5f5;
 }
 
-.cover-picture {
-  text-align: center;
-  position: relative;
-}
-
-.cover-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+.cover-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .edit-cover-icon {
   position: absolute;
   top: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.5);
+  background: transparent;
   border: none;
-  border-radius: 50%;
-  color: #FFF;
-  cursor: pointer;
+  color: #007bff;
 }
 
-.profile-header {
-  text-align: center;
-  padding: 20px;
+.profile-card {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .profile-picture {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border: 5px solid #ED6658;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  /* Adjust margin values as needed */
+  margin: 0 auto;
+  margin-top: -50px;
+  border: 5px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .edit-profile-icon {
-  position: relative;
-  top: -40px;
-  left: 80px;
-  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
   border: none;
-  border-radius: 50%;
-  color: #FFF;
-  cursor: pointer;
+  color: #007bff;
 }
 
 .profile-title {
-  color: #ED6658;
+  text-align: center;
   font-size: 24px;
-  /* Adjust margin values as needed */
+  color: #333;
 }
 
-.profile-info {
+.profile-subtitle {
+  text-align: center;
   font-size: 18px;
-  margin: 10px 0;
-  /* Adjust margin values as needed */
-  background-color: #ED6658;
-  color: white;
-}
-
-.profile-details-container {
-  padding: 20px;
-}
-
-.profile-details-card {
-  border: none;
-  background-color: #ED6658;
-  color: #FFF;
+  color: #666;
 }
 
 .profile-description {
+  margin-top: 20px;
   font-size: 16px;
+  color: #444;
 }
 
-.profile-packages {
-  font-size: 16px;
-}
-
-.profile-rating {
-  font-size: 16px;
-}
-
-.book-now-button {
-  background-color: #ED6658;
-  border: none;
-  color: #FFF;
-  margin: 20px 0;
-  padding: 10px 30px;
-  font-size: 18px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-/* Style package cards */
-
-.profile-packages-card {
-  background-color: #ED6658;
-  color: #FFF;
-  padding: 20px;
+.book-button {
+  text-align: center;
   margin-top: 20px;
 }
 
-.package-cards {
-  display: flex;
-  justify-content: space-between;
-}
-
-.package-card {
-  width: 30%;
-  background-color: #FFF;
-  color: #000;
-  text-align: center;
+.book-now-button {
+  background-color: #007bff;
   border: none;
   border-radius: 5px;
-  padding: 10px;
-  margin: 0 5px;
-}
-
-.package-title {
+  color: #fff;
+  padding: 10px 20px;
   font-size: 18px;
-  margin-bottom: 10px;
-  color: #ED6658;
 }
 
-.package-price {
-  font-size: 16px;
-  color: #000;
+.back-button {
+  text-align: center;
+  margin-top: 20px;
 }
-
-
-
-.online-badge {
-  background-color: #4CAF50;
-}
-
-.offline-badge {
-  background-color: #FF5722;
-}
-

@@ -1,13 +1,14 @@
-import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+import ConsSignupPage from "./ConsSignupPage";
 
 function ConsultantSignup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [consultantBio, setConsultantBio] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -16,18 +17,19 @@ function ConsultantSignup() {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleFirstName = (e) => setFirstName(e.target.value);
   const handleLastName = (e) => setLastName(e.target.value);
+  const handleConsultantBio = (e) => setConsultantBio(e.target.value);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, firstName, lastName };
+    const requestBody = { email, password, firstName, lastName, consultantBio };
 
     // Send a request to the server using axios
-    /* 
+    /*
     const authToken = localStorage.getItem("authToken");
     axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
+      `${process.env.REACT_APP_SERVER_URL}/auth/signup`,
+      requestBody,
       { headers: { Authorization: `Bearer ${authToken}` },
     })
     .then((response) => {})
@@ -51,44 +53,79 @@ function ConsultantSignup() {
   };
 
   return (
-    <div className="SignupPage">
-      <h1>CS Sign Up</h1>
+    <div className="ConsSignupPage">
+      <div className="ConsImage-container">
+        <img src="/pomelopinkbg.png"></img>
+      </div>
+      <div className="ConsSignup-wording">
+        <div className="ConsSignupPage">
+          <h1>
+            Sign up as a POMELO Consultant. Help people get jobs and get paid
+            for it.
+          </h1>
+        </div>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+        <form onSubmit={handleSignupSubmit}>
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="firstName"
+              value={firstName}
+              onChange={handleFirstName}
+              placeholder="First Name"
+            />
+          </div>
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="lastName"
+              value={lastName}
+              onChange={handleLastName}
+              placeholder="Last Name"
+            />
+          </div>
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="text"
+              name="consultantBio"
+              value={consultantBio}
+              onChange={handleConsultantBio}
+              placeholder="Tell us about yourself!"
+            />
+          </div>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleEmail}
+              placeholder="email"
+            />
+          </div>
 
-        <label>Last Name:</label>
-        <input
-          type="text"
-          name="firstName"
-          value={firstName}
-          onChange={handleFirstName}
-        />
+          <div className="signup-container">
+            <label></label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handlePassword}
+              placeholder="password"
+            />
+          </div>
 
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          value={lastName}
-          onChange={handleLastName}
-        />
-
-        <button type="submit">Sign Up</button>
-      </form>
-
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+          <button type="submit">Sign Up</button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <p className="text-right">
+          Already have an account? <Link to="/login">Login</Link>
+        </p>
+      </div>
     </div>
   );
 }
