@@ -221,3 +221,6 @@ button {
 button:hover {
   background: #0056b3;
 }
+.custom-card-width {
+  width: 100%; /* Define the desired width */
+}

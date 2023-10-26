@@ -160,15 +160,15 @@
 
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { Card, ListGroup, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col, Button } from "react-bootstrap";
 import { AuthContext } from "../../context/auth.context";
-import { ConsultantContext } from "../../context/consultant.context";
+//import { ConsultantContext } from "../../context/consultant.context";
 import VideoChatComponent from "../../components/Booking/VideoChatComponent";
-import "./ProfilePage.css"; // Import your custom CSS for styling
+import "./ProfilePage.css";
 
 const ConsultantProfilePage = () => {
-  const { authToken, isLoading: authLoading, user } = useContext(AuthContext);
-  const consultantContext = useContext(ConsultantContext);
+  const { isLoading: authLoading, user } = useContext(AuthContext);
+  //const consultantContext = useContext(ConsultantContext);
   const [loadingConsultant, setLoadingConsultant] = useState(true);
   const [error, setError] = useState(null);
 
@@ -237,7 +237,8 @@ const ConsultantProfilePage = () => {
     return <p>Not logged in or data not available.</p>;
   }
 
-  const { firstName, lastName, ConsultantBio } = profileData.consultant;
+  const { firstName, lastName, consultantBio, profilePicture } =
+    profileData.consultant;
 
   return (
     <div className="container profile-container">
@@ -254,7 +255,7 @@ const ConsultantProfilePage = () => {
 
       <div className="profile-header text-center">
         <img
-          src="/kiruba.webp" // Add the appropriate source for the profile picture
+          src={profilePicture} // Add the appropriate source for the profile picture
           alt="Profile"
           className="profile-picture img-thumbnail rounded-circle"
         />
@@ -263,6 +264,7 @@ const ConsultantProfilePage = () => {
         </button>
         <h1 className="profile-title">{`${firstName} ${lastName}`}</h1>
         <p className="profile-info">{user.userType}</p>
+        <p className="profile-info">{consultantBio}</p>
       </div>
 
       <div className="profile-session-container">
@@ -270,26 +272,29 @@ const ConsultantProfilePage = () => {
         <Row>
           {profileData.bookings.map((booking) => (
             <Col key={booking._id} md={4}>
-              <Card className="session-card">
+              <Card className="session-card custom-card-width">
                 <Card.Header className="bg-success text-white">
                   Session
                 </Card.Header>
                 <Card.Body>
-                  <Card.Title>Session with {booking.jobseeker}</Card.Title>
+                  <Card.Title>
+                    Session with {booking.jobseeker || "Unknown Jobseeker"}
+                  </Card.Title>
                   <Card.Text>
                     <p>
                       Session Date:{" "}
                       {new Date(booking.sessionDate).toLocaleString()}
                     </p>
-                    <p>Package Type: {booking.packageType}</p>
-                    <p>Payment Status: {booking.paymentStatus}</p>
+                    <p>Package Booked: {booking.packageType}</p>
                   </Card.Text>
                 </Card.Body>
+                <Button className="btn-success">Send Meeting link</Button>
               </Card>
             </Col>
           ))}
         </Row>
       </div>
+
       <VideoChatComponent />
       <Link to={`/projects/edit/${user._id}`}>
         <Button>Edit Profile</Button>

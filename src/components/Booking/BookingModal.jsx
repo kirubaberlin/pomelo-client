@@ -226,12 +226,14 @@ import "./BookingModal.css";
 import { useParams } from "react-router-dom";
 import { useConsultantContext } from "../../context/consultant.context";
 import { useJobSeekerContext } from "../../context/jobseeker.context";
-import { AuthContext } from "../../context/auth.context"; // Import AuthContext
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//import { AuthContext } from "../../context/auth.context";
 
 Modal.setAppElement("#root");
 
-function BookingModal({ isOpen, onRequestClose }) {
-  const { consultantId, jobseekerId } = useParams();
+function BookingModal({ isOpen, onRequestClose, consultant }) {
+  // const { consultantId, jobseekerId } = useParams();
   const [sessionDate, setSessionDate] = useState(null);
   const [packageType, setPackageType] = useState("3");
   const [paymentStatus, setPaymentStatus] = useState("Pending");
@@ -239,10 +241,10 @@ function BookingModal({ isOpen, onRequestClose }) {
   const stripe = useStripe();
   const elements = useElements();
   const storedToken = localStorage.getItem("authToken");
-  const { consultant } = useConsultantContext();
+  // const { consultant } = useConsultantContext();
   const { jobSeeker } = useJobSeekerContext();
   console.log("consultant:", consultant);
-  console.log("jobSeeker:", jobSeeker);
+  console.log("jobSeeker:", jobSeeker._id);
 
   useEffect(() => {
     if (consultant && consultant.paymentStatus) {
@@ -287,24 +289,13 @@ function BookingModal({ isOpen, onRequestClose }) {
   };
 
   const handleCreateBooking = () => {
-    console.log("consultant:", consultant);
-    console.log("jobSeeker:", jobSeeker);
-
-    console.log("Request Data:", {
-      consultant: consultant?._id,
-      jobseeker: jobSeeker?._id,
-      sessionDate: sessionDate.toISOString(),
-      packageType: parseInt(packageType, 10),
-      paymentStatus,
-    });
-
     if (jobSeeker && consultant && sessionDate && packageType) {
       axios
         .post(
           "http://localhost:5005/api/booking",
           {
-            consultant: consultant?._id,
-            jobseeker: jobSeeker?._id,
+            consultant: consultant.consultant._id,
+            jobseeker: jobSeeker,
             sessionDate: sessionDate.toISOString(),
             packageType: parseInt(packageType, 10),
             paymentStatus,
@@ -329,6 +320,19 @@ function BookingModal({ isOpen, onRequestClose }) {
         "Some information is missing. Please make sure you are logged in and have selected a date and package type."
       );
     }
+  };
+  const showSuccessToast = () => {
+    toast.success(
+      "Booking created successfully. Consultants will reach out soon.",
+      {
+        position: "top-right",
+        autoClose: 50000, // Close the popup after 5 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      }
+    );
   };
   return (
     <Modal
@@ -407,6 +411,7 @@ function BookingModal({ isOpen, onRequestClose }) {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </Modal>
   );
 }

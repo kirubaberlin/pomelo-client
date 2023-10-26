@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Container, Form, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCamera,
   faUser,
   faEnvelope,
   faPencilAlt,
-} from "@fortawesome/free-solid-svg-icons"; // Import specific icons
-import "./ProfilePage.css"; // You can place custom CSS in this file
+} from "@fortawesome/free-solid-svg-icons";
+import "./ProfilePage.css";
 
 const EditConsultantProfile = () => {
   const { id } = useParams();
@@ -16,7 +16,8 @@ const EditConsultantProfile = () => {
     firstName: "",
     lastName: "",
     email: "",
-    ConsultantBio: "",
+    consultantBio: "",
+    profilePicture: "",
   });
 
   useEffect(() => {
@@ -31,12 +32,20 @@ const EditConsultantProfile = () => {
   }, [id]);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, files } = e.target;
+    if (name === "profilePicture" && files[0]) {
+      //Temp fix
+      getBase64(files[0]).then((base64String) => {
+        setFormData({ ...formData, [name]: base64String });
+      });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       const response = await fetch(
         `http://localhost:5005/api/consultant/${id}`,
@@ -45,7 +54,7 @@ const EditConsultantProfile = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(formData), // Send the form data as JSON
         }
       );
 
@@ -59,7 +68,13 @@ const EditConsultantProfile = () => {
       console.error("An error occurred while updating the profile:", error);
     }
   };
-
+  const getBase64 = (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+    });
+  };
   return (
     <Container className="profile-container">
       <div className="cover-picture">
@@ -74,7 +89,7 @@ const EditConsultantProfile = () => {
       </div>
       <div className="profile-header text-center">
         <img
-          src="/kiruba.webp"
+          src={formData.profilePicture}
           alt="Profile"
           className="profile-picture img-thumbnail rounded-circle mb-5"
         />
@@ -123,17 +138,34 @@ const EditConsultantProfile = () => {
             <Form.Control
               as="textarea"
               name="ConsultantBio"
-              value={formData.ConsultantBio}
+              value={formData.consultantBio}
               onChange={handleInputChange}
             />
           </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>
+              <FontAwesomeIcon icon={faCamera} /> Profile Picture
+            </Form.Label>
+            <Form.Control
+              type="file"
+              name="profilePicture"
+              onChange={handleInputChange}
+            />
+          </Form.Group>
+
           <Button variant="success" type="submit">
-            Save Changes
+            Apply Changes
           </Button>
         </Form>
       </div>
       <Link
-        to={`/csprofile/${id}`}
+        to={`/consultant-profile/${id}`}
+        className="btn btn-success edit-profile-link"
+      >
+        Done
+      </Link>
+      <Link
+        to={`/consultant-profile/${id}`}
         className="btn btn-secondary edit-profile-link"
       >
         Cancel
