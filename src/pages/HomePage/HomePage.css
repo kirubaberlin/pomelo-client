@@ -1,79 +1,93 @@
-/* Your CSS */
-.homepage {
-    background-color: #f9f9f9;
-    padding: 50px 0;
-  }
+.consultants-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px; 
+  width: 100%;
+  position: relative;
+}
+
+.transbox {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 27px;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bolder;
+  color: black;
+  margin-bottom: 10px;
+  font-family: 'Big Shoulders Display', sans-serif;
+}
+
+.infoText {
+  margin-top: 10px;
+}
+
+.transparentPaper {
+  padding: 20px;
+  font-size: 18px;
+}
+
+.paragraph {
+  font-size: 24px;
+}
+
+.white {
+  color: white;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: white; 
   
-  .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("https://img.freepik.com/free-photo/organic-honeydew-harvest-nature-garden_53876-31658.jpg?w=1060&t=st=1697741641~exp=1697742241~hmac=7c466e926abe357b40642e9afd0167ec52740a076444fc3739867eb2c283e4c0");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    opacity: 1;
-    text-align: center;
-    padding: 100px 0;
-    position: relative;
-    transition: background 0.5s;
-  }
-  
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-  
-  .navbar {
-    background-color: transparent !important; /* Transparent Navbar */
-    transition: background 0.5s; /* Add a smooth transition effect */
-  }
-  
-  .hero-content {
-    padding: 30px;
-    border-radius: 10px;
-    position: relative;
-    z-index: 1;
-    transition: color 0.5s;
-  }
-  
-  .hero:hover .hero-content {
-    color: #ffffff; /* Change text color on hover */
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    font-weight: 700;
-  }
-  
-  .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    font-weight: 400;
-  }
-  
-  .hero button {
-    font-size: 1.2rem;
-    border-radius: 50px;
-    padding: 12px 36px;
-    background-color: #ED6658;
-    border-color: #ED6658;
-    transition: background-color 0.3s, border-color 0.3s;
-  }
-  
-  .hero button:hover {
-    background-color: #948D24;
-    border-color: #948D24;
-  }
-  
-  .hero button:focus {
-    box-shadow: 0 0 0 0.2rem #ED6658;
-  }
-  
+}
+
+.card {
+  background: white; 
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  font-size: 24px; 
+  font-weight: bolder;
+  padding: 20px;
+  text-align: center;
+  width: 18rem;
+  font-family: 'Big Shoulders Display', sans-serif;
+}
+
+.additional-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: white; 
+  margin-top: 20px; 
+}
+
+.card-title {
+  font-size: 30px;
+  font-weight: bolder;
+  font-family: 'Big Shoulders Display', sans-serif;
+}
+
+.four-box-background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 20px; 
+  /*background-image: url(./orangepomelo.png);*/
+}

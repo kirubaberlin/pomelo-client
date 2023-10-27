@@ -28,7 +28,7 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<ConsultantsList />} />
+        <Route path="/" element={<HomePage />} />
 
         <Route
           path="/consultant-profile/:id"
