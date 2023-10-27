@@ -19,6 +19,7 @@ import ConsultantProfilePage from "./pages/ProfilePage/ConsultantProfilePage";
 import ConsultantEdit from "./pages/ProfilePage/ConsultantEdit";
 import ConsultantDetail from "./pages/ProfilePage/ConstultantDetail";
 import JobseekerSignupPage from "./pages/SignupPage/JobseekerSignupPage";
+import ConsultantCard from "./components/ConsultantsList/ConsultantCard";
 
 function App() {
   return (
