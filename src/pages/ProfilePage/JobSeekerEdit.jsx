@@ -71,7 +71,7 @@ const EditJobSeekerProfile = () => {
     <div className="container profile-container">
       <div className="cover-picture">
         <img
-          src="/testcover.png"
+          src="./pomelo-client/public/pomelo.png"
           alt="Cover"
           className="img-fluid cover-image"
         />
