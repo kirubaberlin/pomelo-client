@@ -10,6 +10,13 @@
   
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
+.profile-edit-form{
+  padding-top: 115px;
+}
+.profile-edit-form input, textarea{
+  font-size: 20px;
+  font-family: "Big Shoulders Display";
+}
 
 .cover-picture {
   width: 100%;
@@ -81,9 +88,7 @@
   text-align: center;
 }
 
-.edit-profile-link:hover {
-  background-color: #0056b3;
-}
+
 
 .cover-image {
   width: 100%;
@@ -138,15 +143,7 @@
   text-align: center;
 }
 
-/* Cover picture */
-.cover-picture {
-  position: relative;
-}
 
-.cover-picture img {
-  max-width: 100%;
-  height: auto;
-}
 
 .edit-cover-icon {
   position: absolute;
@@ -207,20 +204,28 @@
 }
 
 /* Edit Profile button */
-button {
-  background: #007BFF;
-  color: #fff;
-  border: none;
+.edit-profile-button {
+  background-color: white;
   padding: 10px 20px;
+  border: none;
   border-radius: 5px;
-  font-size: 16px;
-  margin-top: 20px;
+  margin-top: 20px ;
+  color: black;
+  font-size: 28px;
+  font-weight: bolder;
   cursor: pointer;
+  font-family: "Big Shoulders Display";
+  text-align: right;
+  margin-right: 0px;
 }
 
-button:hover {
-  background: #0056b3;
+.edit-profile-button:hover {
+  background-color: black;
+  color: white;
+  transform: scale(1.05);
+  text-align: center;
 }
-.custom-card-width {
-  width: 100%; /* Define the desired width */
+
+.done-cancel-buttons {
+  display: flex;
 }

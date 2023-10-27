@@ -79,12 +79,13 @@ function HomePage() {
           </p>
         </div>
       </div>
+      <h1> Some of our consultants</h1>
       <div className="cards">
         {consultantData.map((consultant) => (
           <ConsultantCard key={consultant.id} consultant={consultant} />
         ))}
       </div>
-
+      <h1>Why you should choose POMELO</h1>
       <div
         className="four-box-background"
         style={{

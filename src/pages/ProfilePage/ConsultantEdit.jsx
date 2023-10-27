@@ -103,13 +103,15 @@ const EditConsultantProfile = () => {
     <Container className="profile-container">
       <div className="cover-picture">
         <img
-          src="./pomelo-client/public/pomelo.png"
+          src="/pomelo.png" // Add the appropriate source for the cover picture
           alt="Cover"
           className="img-fluid cover-image"
         />
         <button className="edit-cover-icon">
-          <FontAwesomeIcon icon={faCamera} />
+          <i className="fas fa-pencil-alt"></i>
         </button>
+
+        <button className="edit-cover-icon"></button>
       </div>
       <div className="profile-header text-center">
         <img
@@ -117,15 +119,11 @@ const EditConsultantProfile = () => {
           alt="Profile"
           className="profile-picture img-thumbnail rounded-circle mb-5"
         />
-        <button className="edit-profile-icon">
-          <FontAwesomeIcon icon={faCamera} />
-        </button>
+        <button className="edit-profile-icon"></button>
         <Form onSubmit={handleSubmit} className="profile-edit-form mt-5">
           <Form.Group className="mt-2">
-            <Form.Label>
-              <FontAwesomeIcon icon={faUser} /> First Name
-            </Form.Label>
             <Form.Control
+              placeholder="First Name"
               type="text"
               name="firstName"
               value={formData.firstName}
@@ -134,10 +132,8 @@ const EditConsultantProfile = () => {
           </Form.Group>
 
           <Form.Group className="mb-3 mt-4">
-            <Form.Label>
-              <FontAwesomeIcon icon={faUser} /> Last Name
-            </Form.Label>
             <Form.Control
+              placeholder="Last Name"
               type="text"
               name="lastName"
               value={formData.lastName}
@@ -145,10 +141,8 @@ const EditConsultantProfile = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>
-              <FontAwesomeIcon icon={faEnvelope} /> Email
-            </Form.Label>
             <Form.Control
+              placeholder="email address"
               type="email"
               name="email"
               value={formData.email}
@@ -156,10 +150,8 @@ const EditConsultantProfile = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>
-              <FontAwesomeIcon icon={faPencilAlt} /> Description
-            </Form.Label>
             <Form.Control
+              placeholder="tell us about yourself"
               as="textarea"
               name="consultantBio"
               value={formData.consultantBio}
@@ -167,10 +159,8 @@ const EditConsultantProfile = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>
-              <FontAwesomeIcon icon={faCamera} /> Profile Picture
-            </Form.Label>
             <Form.Control
+              placeholder="profile picture"
               type="file"
               name="profilePicture"
               onChange={handleInputChange}
@@ -194,18 +184,14 @@ const EditConsultantProfile = () => {
           </div>
         )}
       </div>
-      <Link
-        to={`/consultant-profile/${id}`}
-        className="btn btn-success edit-profile-link"
-      >
-        Done
-      </Link>
-      <Link
-        to={`/consultant-profile/${id}`}
-        className="btn btn-secondary edit-profile-link"
-      >
-        Cancel
-      </Link>
+      <div className=" done-cancel-buttons">
+        <Link to={`/consultant-profile/${id}`} className="edit-profile-button">
+          Done
+        </Link>
+        <Link to={`/consultant-profile/${id}`} className="edit-profile-button">
+          Cancel
+        </Link>
+      </div>
     </Container>
   );
 };
