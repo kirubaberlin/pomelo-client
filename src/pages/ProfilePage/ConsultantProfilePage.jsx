@@ -244,7 +244,7 @@ const ConsultantProfilePage = () => {
     <div className="container profile-container">
       <div className="cover-picture">
         <img
-          src="/testcover.png" // Add the appropriate source for the cover picture
+          src="/pomelo.png" // Add the appropriate source for the cover picture
           alt="Cover"
           className="img-fluid cover-image"
         />

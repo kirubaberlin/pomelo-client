@@ -32,28 +32,28 @@
 }
 
 .profile-title {
-  font-size: 24px;
+  font-size: 80px;
   margin: 60px 0 20px;
   color: #333;
   text-align: center;
 }
 
 .profile-info {
-  font-size: 18px;
+  font-size: 25px;
   margin-bottom: 10px;
   color: #555;
   text-align: center;
 }
 
 .profile-subtitle {
-  font-size: 20px;
+  font-size: 25px;
   margin-top: 20px;
   color: #333;
   text-align: center;
 }
 
 .profile-bio-text {
-  font-size: 16px;
+  font-size: 20px;
   color: #333;
 }
 
@@ -87,7 +87,7 @@
 
 .cover-image {
   width: 100%;
-  max-height: 200px;
+  max-height: 300px;
   object-fit: cover;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;

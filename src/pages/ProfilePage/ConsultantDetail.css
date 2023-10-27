@@ -24,11 +24,11 @@
 }
 
 .profile-picture {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   margin: 0 auto;
-  margin-top: -50px;
+  margin-top: 150px;
   border: 5px solid #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -44,7 +44,7 @@
 
 .profile-title {
   text-align: center;
-  font-size: 24px;
+  font-size: 80px;
   color: #333;
 }
 
