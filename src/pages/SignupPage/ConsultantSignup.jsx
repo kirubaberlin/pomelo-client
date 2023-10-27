@@ -77,7 +77,6 @@ function ConsultantSignup() {
             />
           </div>
           <div className="signup-container">
-            <label></label>
             <input
               type="text"
               name="lastName"
@@ -87,7 +86,6 @@ function ConsultantSignup() {
             />
           </div>
           <div className="signup-container">
-            <label></label>
             <input
               type="text"
               name="consultantBio"
@@ -98,7 +96,6 @@ function ConsultantSignup() {
           </div>
 
           <div className="signup-container">
-            <label></label>
             <input
               type="email"
               name="email"
@@ -109,7 +106,6 @@ function ConsultantSignup() {
           </div>
 
           <div className="signup-container">
-            <label></label>
             <input
               type="password"
               name="password"

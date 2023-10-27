@@ -138,10 +138,10 @@
   
   .signup-container {
     flex: 1;
-
     background-color: white;
     font-family: "Big Shoulders Display";
     text-align: center;
+    padding: 0;
 
   }
   

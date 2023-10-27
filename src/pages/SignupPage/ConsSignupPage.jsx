@@ -53,7 +53,7 @@ function ConsSignupPage() {
   return (
     <div className="ConsSignupPage">
       <div className="ConsImage-container">
-        <img src="pomelopinkbg.png"></img>
+        <img src="./pomelopinkbg.png"></img>
       </div>
       <div className="ConsSignup-wording">
         <div className="ConsSignupPage">
