@@ -296,8 +296,8 @@ const ConsultantProfilePage = () => {
       </div>
 
       <VideoChatComponent />
-      <Link to={`/projects/edit/${user._id}`}>
-        <Button>Edit Profile</Button>
+      <Link to={`/projects/edit/${user._id}`} className="edit-profile-button">
+        Edit Profile
       </Link>
     </div>
   );
