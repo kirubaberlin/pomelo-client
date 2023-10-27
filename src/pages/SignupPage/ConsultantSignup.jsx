@@ -40,10 +40,13 @@ function ConsultantSignup() {
       .consignup(requestBody)
       .then((response) => {
         // If the POST request is successful redirect to the login page
+        console.log(response);
         navigate("/login");
       })
       .catch((error) => {
         // If the request resolves with an error, set the error message in the state
+        console.log(error);
+
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });

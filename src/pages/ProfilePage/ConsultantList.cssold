@@ -120,7 +120,9 @@ cadrd */
   max-width: 150px;
   height: 150px;
   object-fit: cover;
-  margin-top: -30px;
+  margin-right: auto;
+  margin-left: auto;
+ 
 }
 
 .card-title.consultant-name {

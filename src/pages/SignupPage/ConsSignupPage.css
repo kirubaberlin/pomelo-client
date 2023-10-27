@@ -39,7 +39,7 @@ form {
   background-color: white;
   font-family: "Big Shoulders Display";
   text-align: center;
-  padding: 20px;
+
 }
 
 .signup-container label {
@@ -53,6 +53,7 @@ form {
   padding: 8px;
   border: 1px solid #ccc;
   width: 100%;
+  margin-bottom: 32px;
   border-radius: 5px;
   font-size: 16px;
   text-align: center;

@@ -5,7 +5,8 @@
 }
 .login-container {
   flex: 1;
-  background-color: white;
+
+ 
   font-family: "Big Shoulders Display";
   font-weight: bolder;
   text-align: center;
@@ -13,7 +14,28 @@
 
 }
 
+.login-background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%; 
+  width: 100%;
+  position: relative;
+}
 
+.welcome-heading {
+  font-size: 120px;
+  color: black;
+  font-weight: bolder;
+}
+
+.login-box {
+  background-color: white;
+  width: 400px;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .image-container {
   flex: 1;
@@ -26,11 +48,10 @@
   height: auto;
 }
 .login-form {
-  background-color:white;
   color: #333;
   max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   border-radius: 5px;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
 }
@@ -38,6 +59,7 @@
 .login-form label {
   font-weight: bold;
   margin-bottom: 10px;
+  font-size: 30px;
   display: block;
   font-family: "Big Shoulders Display";
 }
@@ -46,6 +68,7 @@
   border: 1px solid #ccc;
   width: 100%;
   border-radius: 5px;
+  margin-bottom: 32px;
   font-size: 16px;
   text-align: center;
   display: block;
