@@ -41,7 +41,10 @@ class AuthService {
   };
 
   jssignup = (requestBody) => {
-    return this.api.post("/api/signup/jobseeker", requestBody);
+    return this.api.post(
+      "https://pomelo-server.onrender.com/api/jobseeker",
+      requestBody
+    );
     // same as
     // return axios.post("http://localhost:5005/auth/singup");
   };

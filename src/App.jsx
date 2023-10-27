@@ -9,7 +9,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import ConsultantSignup from "./pages/SignupPage/ConsultantSignup";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ConsSignupPage from "./pages/ConsSignupPage/ConsSignupPage";
-//import ConsultantsList from "./components/ConsultantsList/ConsultantsList";
+import ConsultantsList from "./components/ConsultantsList/ConsultantsList";
 
 import Navbar from "./components/Navbar/Navbar";
 import Room from "./components/Room/Room";
@@ -19,8 +19,6 @@ import ConsultantProfilePage from "./pages/ProfilePage/ConsultantProfilePage";
 import ConsultantEdit from "./pages/ProfilePage/ConsultantEdit";
 import ConsultantDetail from "./pages/ProfilePage/ConstultantDetail";
 import JobseekerSignupPage from "./pages/SignupPage/JobseekerSignupPage";
-import ConsultantList from "./pages/ProfilePage/ConsultantList";
-import ConsultantsList from "./components/ConsultantsList/ConsultantsList";
 
 function App() {
   return (
@@ -76,7 +74,7 @@ function App() {
           path="/consultants"
           element={
             <IsPrivate>
-              <ConsultantList />
+              <ConsultantsList />
             </IsPrivate>
           }
         />
@@ -109,7 +107,7 @@ function App() {
         />
 
         <Route
-          path="/jobseeker/signup"
+          path="/signup/jobseeker"
           element={
             <IsAnon>
               <JobseekerSignupPage />

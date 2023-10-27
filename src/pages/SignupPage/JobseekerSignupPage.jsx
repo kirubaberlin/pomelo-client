@@ -54,33 +54,36 @@ function JobseekerSignupPage() {
         <div className="form-container">
           <h1> Sign up with POMELO and let us help you get your dream job</h1>
           <form onSubmit={handleSignupSubmit}>
-            <label>Email:</label>
             <input
               type="email"
               name="email"
               value={email}
               onChange={handleEmail}
+              placeholder="email"
             />
-            <label>Password:</label>
+
             <input
               type="password"
               name="password"
               value={password}
               onChange={handlePassword}
+              placeholder="password"
             />
-            <label>First Name:</label>
+
             <input
               type="text"
               name="firstName"
               value={firstName}
               onChange={handleFirstName}
+              placeholder="first name"
             />
-            <label>Last Name:</label>
+
             <input
               type="text"
               name="lastName"
               value={lastName}
               onChange={handleLastName}
+              placeholder="last name"
             />
             <button type="submit">Sign Up</button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}

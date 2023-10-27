@@ -129,7 +129,7 @@ const ConsultantDetail = () => {
   const [consultant, setConsultant] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5005/api/consultant/${id}`)
+    fetch(`https://pomelo-server.onrender.com/api/consultant/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(

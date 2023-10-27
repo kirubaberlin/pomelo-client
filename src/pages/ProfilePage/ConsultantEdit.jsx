@@ -21,7 +21,7 @@ const EditConsultantProfile = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:5005/api/consultant/${id}`)
+    fetch(`https://pomelo-server.onrender.com/api/consultant/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setFormData(data);

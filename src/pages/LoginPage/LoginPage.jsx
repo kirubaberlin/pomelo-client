@@ -46,65 +46,74 @@ function LoginPage() {
       });
   };
 
+  const backgroundImageURL = "juicyPomelo.png";
+
   return (
     <div className="LoginPage">
-      <div className="login-container animate__animated animate__fadeInRight">
-        <div className="welcome-text">
-          <h1 className="welcome-heading">Welcome to Pomelo</h1>
+      <div
+        className="login-background-image"
+        style={{ backgroundImage: `url(${backgroundImageURL})` }}
+      >
+        <div className="login-container animate__animated animate__fadeInRight">
+          <div className="welcome-text">
+            <h1 className="welcome-heading">Welcome back to POMELO</h1>
+          </div>
+          <div className="login-box">
+            {loginSuccess ? (
+              // Render a success message or animation here
+              <p className="success-message">
+                Login Successful! Redirecting...
+              </p>
+            ) : (
+              <>
+                <form className="login-form" onSubmit={handleLoginSubmit}>
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleEmail}
+                    placeholder="Enter your email"
+                    className="input-field"
+                  />
+
+                  <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handlePassword}
+                    placeholder="Enter your password"
+                    className="input-field"
+                  />
+
+                  <label>Log in as:</label>
+                  <select
+                    value={userType}
+                    onChange={handleUserTypeChange}
+                    className="input-field"
+                  >
+                    <option value="consultant">Consultant</option>
+                    <option value="jobseeker">Jobseeker</option>
+                  </select>
+
+                  <button type="submit" className="login-button">
+                    Login
+                  </button>
+                </form>
+              </>
+            )}
+
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+            {!loginSuccess && (
+              <p className="signup-text">
+                Don't have an account yet?&nbsp;
+                <Link to="/signup" className="signup-link">
+                  Sign Up
+                </Link>
+              </p>
+            )}
+          </div>
         </div>
-        {loginSuccess ? (
-          // Render a success message or animation here
-          <p className="success-message">Login Successful! Redirecting...</p>
-        ) : (
-          <>
-            <form className="login-form" onSubmit={handleLoginSubmit}>
-              <label>Email:</label>
-              <input
-                type="email"
-                name="email"
-                value={email}
-                onChange={handleEmail}
-                placeholder="Enter your email"
-                className="input-field"
-              />
-
-              <label>Password:</label>
-              <input
-                type="password"
-                name="password"
-                value={password}
-                onChange={handlePassword}
-                placeholder="Enter your password"
-                className="input-field"
-              />
-
-              <label>Log in as:</label>
-              <select
-                value={userType}
-                onChange={handleUserTypeChange}
-                className="input-field"
-              >
-                <option value="consultant">Consultant</option>
-                <option value="jobseeker">Jobseeker</option>
-              </select>
-
-              <button type="submit" className="login-button">
-                Login
-              </button>
-            </form>
-          </>
-        )}
-
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-        {!loginSuccess && (
-          <p className="signup-text">
-            Don't have an account yet?
-            <Link to="/signup" className="signup-link">
-              Sign Up
-            </Link>
-          </p>
-        )}
       </div>
     </div>
   );

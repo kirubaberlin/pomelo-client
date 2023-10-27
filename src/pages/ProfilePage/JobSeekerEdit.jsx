@@ -50,7 +50,7 @@ const EditJobSeekerProfile = () => {
 
   useEffect(() => {
     if (!isDataFetched) {
-      fetch(`http://localhost:5005/api/jobseeker/${id}`)
+      fetch(`https://pomelo-server.onrender.com/api/jobseeker/${id}`)
         .then((response) => response.json())
         .then((data) => {
           setFirstName(data.firstName);

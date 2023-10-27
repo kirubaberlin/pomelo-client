@@ -34,14 +34,14 @@ function Navbar() {
             Our Consultants
           </Link>
 
-          <Link to={getProfileLink()}>
-            <button className="navbar-button">PROFILE</button>
+          <Link to={getProfileLink()} className="navbar-button">
+            PROFILE
             {consultant.firstName}
             {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
           </Link>
-          <button className="push navbar-button" onClick={logOutUser}>
+          <a className="push navbar-button" onClick={logOutUser}>
             Logout
-          </button>
+          </a>
 
           <span>{user && user.name}</span>
         </>
@@ -50,7 +50,7 @@ function Navbar() {
       {!isLoggedIn && (
         <>
           <div className="navbar-item navbar-button">
-            <Link to="/jobseeker/signup"> Jobseeker Sign Up </Link>
+            <Link to="/signup/jobseeker"> Jobseeker Sign Up </Link>
           </div>
           <div className="navbar-button">
             <Link to="/signup/consultant"> Consultant Sign Up </Link>
