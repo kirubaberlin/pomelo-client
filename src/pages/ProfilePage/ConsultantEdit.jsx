@@ -10,7 +10,7 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import "./ProfilePage.css";
-
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
 const EditConsultantProfile = () => {
   const { id } = useParams();
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const EditConsultantProfile = () => {
   const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
-    fetch(`https://pomelo-server.onrender.com/api/consultant/${id}`)
+    fetch(`${API_URL}/api/consultant/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setFormData(data);

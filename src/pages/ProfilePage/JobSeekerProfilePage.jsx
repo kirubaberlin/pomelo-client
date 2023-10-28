@@ -174,7 +174,8 @@ import { Link } from "react-router-dom";
 import VideoChatComponent from "../../components/Booking/VideoChatComponent";
 import "./ProfilePage.css";
 import { AuthContext } from "../../context/auth.context";
-
+import axios from "axios";
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
 const JobSeekerProfilePage = () => {
   const { authToken, isLoading: authLoading, user } = useContext(AuthContext);
   const [loadingJobSeeker, setLoadingJobSeeker] = useState(true);
@@ -185,9 +186,7 @@ const JobSeekerProfilePage = () => {
     jobSeeker: null,
     bookings: [],
   });
-
   const storedToken = localStorage.getItem("authToken");
-
   useEffect(() => {
     const fetchJobSeekerData = async () => {
       try {
@@ -195,33 +194,23 @@ const JobSeekerProfilePage = () => {
           setLoadingJobSeeker(false);
           return;
         }
+        console.log(storedToken);
 
         console.log("Fetching job seeker data...");
-        const response = await fetch(
-          "https://pomelo-server.onrender.com/api/jobseeker/profile",
-          {
-            headers: { Authorization: `Bearer ${storedToken}` },
-          }
+        const { data } = await axios.get(
+          `${API_URL}/api/jobseeker/profile`,
+
+          { headers: { Authorization: `Bearer ${storedToken}` } }
         );
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log("Fetched job seeker data:", data);
-
-          // Check if data contains the jobSeeker property
-          if (data.jobSeeker) {
-            // Set the profileData state with the data
-            setProfileData(data);
-          } else {
-            setError("Job seeker data not available.");
-          }
-
-          setLoadingJobSeeker(false);
+        console.log({ data });
+        if (data.jobSeeker) {
+          // Set the profileData state with the data
+          setProfileData(data);
         } else {
-          console.log("Error loading job seeker data.");
-          setError("Error loading job seeker data.");
-          setLoadingJobSeeker(false);
+          setError("Job seeker data not available.");
         }
+
+        setLoadingJobSeeker(false);
       } catch (error) {
         console.error("Error loading job seeker data:", error);
         setError("Error loading job seeker data.");

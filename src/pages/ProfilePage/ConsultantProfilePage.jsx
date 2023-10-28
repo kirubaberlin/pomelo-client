@@ -165,7 +165,7 @@ import { AuthContext } from "../../context/auth.context";
 //import { ConsultantContext } from "../../context/consultant.context";
 import VideoChatComponent from "../../components/Booking/VideoChatComponent";
 import "./ProfilePage.css";
-
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
 const ConsultantProfilePage = () => {
   const { isLoading: authLoading, user } = useContext(AuthContext);
   //const consultantContext = useContext(ConsultantContext);
@@ -189,12 +189,9 @@ const ConsultantProfilePage = () => {
         }
 
         console.log("Fetching consultant data...");
-        const response = await fetch(
-          "https://pomelo-server.onrender.com/api/consultant/profile",
-          {
-            headers: { Authorization: `Bearer ${storedToken}` },
-          }
-        );
+        const response = await fetch(`${API_URL}/api/consultant/profile`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        });
 
         if (response.ok) {
           const data = await response.json();
