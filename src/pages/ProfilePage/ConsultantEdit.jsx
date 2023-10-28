@@ -7,6 +7,7 @@ import {
   faUser,
   faEnvelope,
   faPencilAlt,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import "./ProfilePage.css";
 const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
@@ -19,6 +20,7 @@ const EditConsultantProfile = () => {
     consultantBio: "",
     profilePicture: "",
   });
+  const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
     fetch(`${API_URL}/api/consultant/${id}`)
@@ -34,7 +36,6 @@ const EditConsultantProfile = () => {
   const handleInputChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "profilePicture" && files[0]) {
-      //Temp fix
       getBase64(files[0]).then((base64String) => {
         setFormData({ ...formData, [name]: base64String });
       });
@@ -54,13 +55,12 @@ const EditConsultantProfile = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData), // Send the form data as JSON
+          body: JSON.stringify(formData),
         }
       );
 
       if (response.ok) {
         console.log("Profile updated successfully!");
-        // You can navigate to the consultant's profile page if needed
       } else {
         console.error("Failed to update profile.");
       }
@@ -68,6 +68,29 @@ const EditConsultantProfile = () => {
       console.error("An error occurred while updating the profile:", error);
     }
   };
+
+  const handleDeleteAccount = async () => {
+    if (window.confirm("Are you sure you want to delete your account?")) {
+      try {
+        const response = await fetch(
+          `http://localhost:5005/api/consultant/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+
+        if (response.ok) {
+          console.log("Account deleted successfully!");
+          setIsDeleted(true);
+        } else {
+          console.error("Failed to delete account.");
+        }
+      } catch (error) {
+        console.error("An error occurred while deleting the account:", error);
+      }
+    }
+  };
+
   const getBase64 = (file) => {
     return new Promise((resolve) => {
       const reader = new FileReader();
@@ -75,6 +98,7 @@ const EditConsultantProfile = () => {
       reader.onload = () => resolve(reader.result);
     });
   };
+
   return (
     <Container className="profile-container">
       <div className="cover-picture">
@@ -129,7 +153,7 @@ const EditConsultantProfile = () => {
             <Form.Control
               placeholder="tell us about yourself"
               as="textarea"
-              name="ConsultantBio"
+              name="consultantBio"
               value={formData.consultantBio}
               onChange={handleInputChange}
             />
@@ -147,6 +171,18 @@ const EditConsultantProfile = () => {
             Apply Changes
           </Button>
         </Form>
+
+        {isDeleted ? (
+          <div className="account-deleted-message">
+            <p>Your account has been deleted.</p>
+          </div>
+        ) : (
+          <div className="delete-account">
+            <Button variant="danger" onClick={handleDeleteAccount}>
+              <FontAwesomeIcon icon={faTrash} /> Delete Account
+            </Button>
+          </div>
+        )}
       </div>
       <div className=" done-cancel-buttons">
         <Link to={`/consultant-profile/${id}`} className="edit-profile-button">

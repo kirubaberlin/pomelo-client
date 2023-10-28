@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/ConsultantCard.css";
-//import "Navbar.css";
 
 function ConsultantCard({ consultant }) {
   const name = consultant.firstName + " " + consultant.lastName;
   return (
     <div className="card consultant-card" style={{ width: "18rem" }}>
       <img
-        src={consultant.profilePicture}
+        src={consultant.consultant.profilePicture}
         className="card-img-top"
         alt={name}
       />

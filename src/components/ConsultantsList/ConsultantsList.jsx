@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from "react";
 // import ConsultantCard from "./ConsultantCard";
 // import "./styles/ConsultantsList.css";
@@ -133,40 +134,12 @@
 // export default ConsultantsList;
 
 import React, { useEffect, useState } from "react";
+=======
+import React, { useState, useEffect } from "react";
+>>>>>>> origin/master
 import ConsultantCard from "./ConsultantCard";
 import axios from "axios";
 import "./styles/ConsultantsList.css";
-
-const consultantData = [
-  {
-    id: 1,
-    name: "Alex Palmer",
-    profilePicture: "alexPalmer.jpg",
-    info: "Experienced in international corporate recruitment for 15 years",
-    rating: 4,
-  },
-  {
-    id: 2,
-    name: "Martin Roberts",
-    profilePicture: "martin.jpg",
-    info: "Medical and pharmaceutical recruitment expert",
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: "Sobana Swarnam",
-    profilePicture: "sobanaSwarnam.jpg",
-    info: "Talent-seeking consultant with 100% track record of matching jobseekers with positions",
-    rating: 5,
-  },
-  {
-    id: 4,
-    name: "Mark Settgast",
-    profilePicture: "Mark.jpg",
-    info: "Expert in CV optimisation and cover letters and the property development market",
-    rating: 5,
-  },
-];
 
 const backgroundImageURL = "juicyPomelo.png";
 const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
@@ -200,7 +173,7 @@ function ConsultantsList() {
             <div className="transparentPaper">
               You can rely on our talented group of international consultants to
               add sparkle to your CV and let you fly through your next
-              interviews.{" "}
+              interviews.
             </div>
           </p>
           <p className="paragraph">
@@ -208,6 +181,14 @@ function ConsultantsList() {
             <span className="white">POMELO.</span>
           </p>
         </div>
+      </div>
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search consultants"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
       </div>
       <div className="cards">
         {consultants.map((consultant) => (
