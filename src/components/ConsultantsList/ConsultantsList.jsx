@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import React from "react";
 // import ConsultantCard from "./ConsultantCard";
 // import "./styles/ConsultantsList.css";
@@ -134,9 +133,6 @@
 // export default ConsultantsList;
 
 import React, { useEffect, useState } from "react";
-=======
-import React, { useState, useEffect } from "react";
->>>>>>> origin/master
 import ConsultantCard from "./ConsultantCard";
 import axios from "axios";
 import "./styles/ConsultantsList.css";
@@ -182,14 +178,7 @@ function ConsultantsList() {
           </p>
         </div>
       </div>
-      <div className="search-bar">
-        <input
-          type="text"
-          placeholder="Search consultants"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+
       <div className="cards">
         {consultants.map((consultant) => (
           <ConsultantCard key={consultant.id} consultant={consultant} />
