@@ -132,8 +132,9 @@
 
 // export default ConsultantsList;
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ConsultantCard from "./ConsultantCard";
+import axios from "axios";
 import "./styles/ConsultantsList.css";
 
 const consultantData = [
@@ -168,8 +169,25 @@ const consultantData = [
 ];
 
 const backgroundImageURL = "juicyPomelo.png";
-
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
 function ConsultantsList() {
+  const [consultants, setConsultants] = useState([]);
+  const getConsultants = () => {
+    const storedToken = localStorage.getItem("authToken");
+    axios
+      .get(`${API_URL}/api/consultants`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setConsultants(response.data.consultants);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  useEffect(() => {
+    getConsultants();
+  }, []);
+
   return (
     <div className="consultants-list">
       <div
@@ -192,7 +210,7 @@ function ConsultantsList() {
         </div>
       </div>
       <div className="cards">
-        {consultantData.map((consultant) => (
+        {consultants.map((consultant) => (
           <ConsultantCard key={consultant.id} consultant={consultant} />
         ))}
       </div>

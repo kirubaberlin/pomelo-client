@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Card, ListGroup, Row, Col, Form, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome icons
 import { faCamera, faPencilAlt } from "@fortawesome/free-solid-svg-icons"; // Import specific icons
-
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
 const EditJobSeekerProfile = () => {
   const { id } = useParams();
   const [firstName, setFirstName] = useState("");
@@ -24,16 +24,13 @@ const EditJobSeekerProfile = () => {
 
     try {
       // Send a PUT request to update the job seeker's profile with the form data
-      const response = await fetch(
-        `http://localhost:5005/api/jobseeker/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${API_URL}/api/jobseeker/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
         console.log("Job seeker profile updated successfully!");
@@ -50,7 +47,7 @@ const EditJobSeekerProfile = () => {
 
   useEffect(() => {
     if (!isDataFetched) {
-      fetch(`https://pomelo-server.onrender.com/api/jobseeker/${id}`)
+      fetch(`${API_URL}/api/jobseeker/${id}`)
         .then((response) => response.json())
         .then((data) => {
           setFirstName(data.firstName);

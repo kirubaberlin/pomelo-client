@@ -251,7 +251,7 @@ function BookingModal({ isOpen, onRequestClose, consultant }) {
       setPaymentStatus(consultant.paymentStatus);
     }
   }, [consultant]);
-
+  /*
   const handleProcessPayment = async () => {
     if (sessionDate && packageType) {
       const packageTypeNumber = parseInt(packageType, 10);
@@ -287,7 +287,7 @@ function BookingModal({ isOpen, onRequestClose, consultant }) {
       setError("Please select a date and package type.");
     }
   };
-
+*/
   const handleCreateBooking = () => {
     if (jobSeeker && consultant && sessionDate && packageType) {
       axios
@@ -402,12 +402,13 @@ function BookingModal({ isOpen, onRequestClose, consultant }) {
             </form>
           </div>
           <div className="modal-footer">
-            <button className="btn btn-primary" onClick={handleProcessPayment}>
+            {/*  <button className="btn btn-primary" onClick={handleProcessPayment}>
               Process Payment
             </button>
             <button className="btn btn-danger" onClick={onRequestClose}>
               Close
             </button>
+            */}
           </div>
         </div>
       </div>
@@ -440,7 +441,7 @@ function calculatePaymentAmount(packageType) {
     return -1;
   }
 }
-
+/*
 async function processPayment({ paymentMethodId, amount, currency }) {
   try {
     const response = await axios.post("http://localhost:5005/api/payment", {
@@ -459,5 +460,6 @@ async function processPayment({ paymentMethodId, amount, currency }) {
     return "failure";
   }
 }
+*/
 
 export default BookingModal;

@@ -122,14 +122,14 @@ import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
 import BookingModal from "../../components/Booking/BookingModal";
 import "./ConsultantDetail.css";
-
+const API_URL = process.env.REACT_APP_SERVER_URL || "http://localhost:5005";
 const ConsultantDetail = () => {
   const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
   const [consultant, setConsultant] = useState(null);
 
   useEffect(() => {
-    fetch(`https://pomelo-server.onrender.com/api/consultant/${id}`)
+    fetch(`${API_URL}/api/consultant/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(

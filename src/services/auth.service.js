@@ -3,7 +3,7 @@ import axios from "axios";
 class AuthService {
   constructor() {
     this.api = axios.create({
-      baseURL: process.env.REACT_APP_SERVER_URL,
+      baseURL: process.env.REACT_APP_SERVER_URL || "http://localhost:5005",
     });
 
     // Automatically set JWT token on the request headers for every request
@@ -20,10 +20,7 @@ class AuthService {
   }
 
   login = (requestBody) => {
-    return this.api.post(
-      "https://pomelo-server.onrender.com/auth/login",
-      requestBody
-    );
+    return this.api.post("/auth/login", requestBody);
     // same as
     // return axios.post("http://localhost:5005/auth/login");
   };
@@ -41,10 +38,7 @@ class AuthService {
   };
 
   jssignup = (requestBody) => {
-    return this.api.post(
-      "https://pomelo-server.onrender.com/api/jobseeker",
-      requestBody
-    );
+    return this.api.post("/api/jobseeker", requestBody);
     // same as
     // return axios.post("http://localhost:5005/auth/singup");
   };

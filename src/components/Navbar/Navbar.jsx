@@ -30,16 +30,28 @@ function Navbar() {
       </div>
       {isLoggedIn && (
         <>
-          <Link className="navbar-button" to="/consultants">
+          <Link
+            className="navbar-button"
+            style={{ color: "white" }}
+            to="/consultants"
+          >
             Our Consultants
           </Link>
 
-          <Link to={getProfileLink()} className="navbar-button">
+          <Link
+            to={getProfileLink()}
+            className="navbar-button"
+            style={{ color: "white" }}
+          >
             PROFILE
             {consultant.firstName}
             {/* <img src="https://picsum.photos/id/402/200/300" style={{ width: 50, height: 50, borderRadius: 25}} alt="profile" /> */}
           </Link>
-          <a className="push navbar-button" onClick={logOutUser}>
+          <a
+            className="push   navbar-button"
+            onClick={logOutUser}
+            style={{ color: "white" }}
+          >
             Logout
           </a>
 
